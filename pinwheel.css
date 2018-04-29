@@ -1,71 +1,71 @@
-.pinwheeler {
+/* Pinwheel CSS by Skittyblock */
+
+.pinwheel-overlay {
+  position: relative;
+  z-index: 10000;
+}
+
+.pin-notification {
   transform: translateY(-200%);
   transform-delay: 1s;
-  transition: transform 0.6s ease-in-out;
+  transition: transform 0.6s;
+  position: absolute;
+  left: 2.5%;
+  z-index: -1;
+  top: 5px;
+  width: 95%;
+  margin: auto;
+  background-color: rgba(255,255,255,0.6);
+  color: #000;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 13px;
 }
-.pinwheeler-active {
+.pin-notification.active {
   transform: translateY(0%);
+  -webkit-transform: translateY(0%);
 }
-.pin-notification-light {
-  position: absolute;
-  left: 2.5%;
-  z-index: 20000;
-  margin-top: 5px;
-  width: 95%;
-  margin: auto;
+.pin-notification.light {
   background-color: rgba(255,255,255,0.6);
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
   color: #000;
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 12px;
 }
-.pin-notification-dark {
-  position: absolute;
-  left: 2.5%;
-  z-index: 20000;
-  margin-top: 5px;
-  width: 95%;
-  margin: auto;
+.pin-notification.dark {
   background-color: rgba(0,0,0,0.6);
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
   color: #fff;
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 12px;
 }
-.pin-widget-light {
+
+.pin-widget {
   position: relative;
   z-index: 10;
   width: 95%;
   margin: auto;
-  background-color: rgba(255,255,255,0.6);
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+  background-color: rgba(250, 250, 250, 0.5);
   color: #000;
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 12px;
+  border-radius: 13px;
   margin-top: 20px;
 }
-.pin-widget-dark {
-  position: relative;
-  z-index: 10;
-  width: 95%;
-  margin: auto;
+.pin-widget.light {
+  background-color: rgba(250, 250, 250, 0.5);
+  color: #000;
+}
+.pin-widget.dark {
   background-color: rgba(0,0,0,0.6);
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
   color: #fff;
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 12px;
-  margin-top: 20px;
 }
-.pin-widget-light .pin-top, .pin-notification-light .pin-top {
+.pin-widget.shadow {
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.pin-widget.light .pin-top {
   position: relative;
   z-index: 15;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.4);
   color: #000;
   height: 36px;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
-.pin-widget-dark .pin-top, .pin-notification-dark .pin-top {
+.pin-widget.dark .pin-top {
   position: relative;
   z-index: 15;
   background-color: rgba(0,0,0,0.3);
@@ -74,17 +74,19 @@
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
+
 .pin-img img {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 5px;
-  margin-top: 7px;
-  margin-left: 7px;
+  margin-top: 8px;
+  margin-left: 8px;
 }
 .pin-title {
   position: absolute;
   z-index: 20;
-  font-size: 14px;
+  color: #575757;
+  font-size: 13px;
   top: 0;
   padding-top: 9px;
   padding-left: 36px;
@@ -92,12 +94,15 @@
 .pin-dismiss {
   position: absolute;
   z-index: 20;
-  font-size: 14px;
-  color: #000;
+  color: #575757;
+  font-size: 13px;
   top: 0;
   right: 0;
   padding-top: 9px;
   padding-right: 9px;
+}
+.dark .pin-title, .dark .pin-dismiss {
+  color: #ddd;
 }
 .pin-bold {
   padding-top: 6px;
@@ -107,5 +112,8 @@
 .pin-text {
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 6px;
+  padding-bottom: 10px;
+}
+.pin-text.pad {
+  padding-top: 6px;
 }
