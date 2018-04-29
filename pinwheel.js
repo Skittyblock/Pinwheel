@@ -1,4 +1,4 @@
-// Call notification like this: pin.addPinwheel('img/icon.png', 'Pinwheel', 'Bold Title', 'This is a Pinwheel notification called by pin.addPinwheel(args);', 'light');
+// Pinwheel JS by Skittyblock
 
 var pin = new Pinwheel();
 
@@ -9,27 +9,24 @@ function Pinwheel() {
     title = title || 'Pinwheel';
     title = title.toUpperCase();
     color = color || 'light';
-    if(color === 'light') {
-      var theme = 'pin-notification-light';
-    } else {
-      var theme = 'pin-notification-dark';
+    var pad = 'pad';
+    if (bold) {
+      bold = '<div class="pin-bold">'+bold+'</div>';
+      pad = '';
     }
-    if($$('.pinwheeler').hasClass('pinwheel-active') === true) {
-      $$('.pinwheeler').removeClass('pinwheeler-active');
-      setTimeout(function() { 
-        
-      },1000);
+    if($('.pin-notification').hasClass('active')) {
+      $('.pin-notification').toggleClass('active');
     } else {
-    $$('.pinwheel').html('<div class="'+theme+' pinwheeler"><div class="pin-top"><div class="pin-img"><img src="'+icon+'" /></div><div class="pin-title">'+title+'</div><div class="pin-dismiss" onclick="pin.removePinwheel();">Close</div></div><div class="pin-bold">'+bold+'</div><div class="pin-text">'+text+'</div></div>');
-    setTimeout(function() {
-      $$('.pinwheeler').addClass('pinwheeler-active');
-    },10);
+      $$('.pinwheel-overlay').html('<div class="pin-notification '+color+'"><div class="pin-top"><div class="pin-img"><img src="'+icon+'" /></div><div class="pin-title">'+title+'</div><div class="pin-dismiss" onclick="pin.removePinwheel();">Close</div></div>'+bold+'<div class="pin-text '+pad+'">'+text+'</div></div>');
+      setTimeout(function() {
+        $$('.pin-notification').toggleClass('active');
+      },10);
     }
   }
   app.removePinwheel = function() {
-    $$('.pinwheeler').removeClass('pinwheeler-active');
+    $$('.pin-notification').removeClass('active');
     setTimeout(function() {
-      $$('.pinwheel').html('');
+      $$('.pinwheel-overlay').html('');
     },1000);
   }
 }
